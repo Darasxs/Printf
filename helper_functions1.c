@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:33:53 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/26 18:52:42 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:32:27 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,24 @@ int	ft_print_nbr(int i)
 		length++;
 	}
 	length += ft_print_nbr(i / 10);
+	c = i % 10 + '0';
+	write(1, &c, 1);
+	return (length);
+}
+
+int	ft_print_unsigned(int i)
+{
+	int		length;
+	char	c;
+
+	length = 0;
+	if (i < 10)
+	{
+		c = i + '0';
+		write(1, &c, 1);
+		length++;
+	}
+	length += ft_print_unsigned(i / 10);
 	c = i % 10 + '0';
 	write(1, &c, 1);
 	return (length);

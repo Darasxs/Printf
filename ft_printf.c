@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:02:50 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/26 19:10:30 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:33:05 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_checker(char *s, va_list arg)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	va_start(arg, s);
@@ -29,12 +29,12 @@ static int	ft_checker(char *s, va_list arg)
 		else if (*s == 'd' || *s == 'i')
 			len += ft_print_nbr(va_arg(arg, int));
 		else if (*s == 'u')
-			len += (ft_unsigned());
-		//else if (*s == 'x')
+			len += (ft_print_unsigned(va_arg(arg, int)));
+		// else if (*s == 'x')
 		//	return (ft_hexa());
-		//else if (*s == 'X')
+		// else if (*s == 'X')
 		//	return (ft_hexa());
-		//else if (*s == 'p')
+		// else if (*s == 'p')
 		//	len += ft_print_pointer(va_arg(arg, void *));
 		s++;
 	}
@@ -56,7 +56,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			final += ft_checker(str , va);
+			final += ft_checker(str, va);
 		}
 		else
 			final += write(1, str, 1);
