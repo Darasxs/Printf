@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:33:53 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/27 16:32:27 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/03/28 08:50:36 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_print_nbr(int i)
 	return (length);
 }
 
-int	ft_print_unsigned(int i)
+int	ft_print_unsigned(unsigned int i)
 {
 	int		length;
 	char	c;

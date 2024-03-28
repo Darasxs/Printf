@@ -6,8 +6,13 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:33:46 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/27 16:33:59 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/03/28 08:18:11 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+int ft_print_hexa(unsigned long long i)
+{
+	
+}

@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 11:51:03 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/25 19:00:32 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/03/28 08:28:45 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,11 @@
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
+int	ft_print_char(int c);
+int	ft_print_percent(void);
+int	ft_print_string(char *c);
+int	ft_print_nbr(int i);
+int	ft_print_unsigned(unsigned int i);
+//int	ft_print_hexa(unsigned long long i);
 
 #endif
