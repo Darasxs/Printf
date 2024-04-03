@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:33:46 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/04/03 14:30:08 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/04/03 18:53:51 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,105 @@
 int	ft_print_hex(unsigned int nbr, const char *base)
 {
 	int	length;
+	int	write_check;
 
 	length = 0;
 	if (nbr < 16)
 	{
-		write(1, &base[nbr % 16], 1);
+		write_check = write(1, &base[nbr % 16], 1);
+		if (write_check == -1)
+			return (-1);
 		return (length + 1);
 	}
 	length += ft_print_hex(nbr / 16, base);
-	write(1, &base[nbr % 16], 1);
+	write_check = write(1, &base[nbr % 16], 1);
+	if (write_check == -1)
+		return (-1);
 	return (length + 1);
 }
 
-void static	ft_pointer_helper(unsigned long long i, char *base, int *length)
+int static	ft_pointer_helper(unsigned long long i, char *base, int *length)
 {
+	int	write_check;
+
 	if (i > 0)
 	{
 		ft_pointer_helper(i / 16, base, length);
-		write(1, &base[i % 16], 1);
+		write_check = write(1, &base[i % 16], 1);
+		if (write_check == -1)
+			return (-1);
 		(*length)++;
 	}
+	return (0);
 }
 
 int	ft_print_pointer(unsigned long long i, char *base)
 {
 	int	length;
+	int	write_check;
 
-	write(1, "0x", 2);
+	write_check = write(1, "0x", 2);
+	if (write_check == -1)
+		return (-1);
 	length = 2;
 	if (i == 0)
 	{
-		write(1, "0", 1);
+		write_check = write(1, "0", 1);
+		if (write_check == -1)
+			return (-1);
 		length++;
 	}
 	else if (i > 0)
 		ft_pointer_helper(i, base, &length);
+	return (length);
+}
+
+int	ft_nbr_helper(int i)
+{
+	int		length;
+	int		write_check;
+	char	c;
+
+	length = 0;
+	if (i < 10)
+	{
+		c = i + '0';
+		write_check = write(1, &c, 1);
+		if (write_check == -1)
+			return (-1);
+		return (length + 1);
+	}
+	length += ft_nbr_helper(i / 10);
+	if (length == -1)
+		return (-1);
+	c = i % 10 + '0';
+	write_check = write(1, &c, 1);
+	if (write_check == -1)
+		return (-1);
+	return (length + 1);
+}
+
+int	ft_print_nbr(int i)
+{
+	int	length;
+	int	write_check;
+
+	length = 0;
+	if (i == -2147483648)
+	{
+		write_check = write(1, "-2147483648", 11);
+		if (write_check == -1)
+			return (-1);
+		return (11);
+	}
+	if (i < 0)
+	{
+		write_check = write(1, "-", 1);
+		if (write_check == -1)
+			return (-1);
+		i = -i;
+		length++;
+	}
+	length += (ft_nbr_helper(i));
 	return (length);
 }

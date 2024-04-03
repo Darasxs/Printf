@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:02:50 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/04/03 15:00:28 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:09:09 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	ft_printf(const char *str, ...)
 		{
 			str++;
 			final += ft_checker(str, va);
+			if (final == -1)
+				break ;
 		}
 		else
 			final += write(1, str, 1);
