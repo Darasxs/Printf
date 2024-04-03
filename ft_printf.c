@@ -6,21 +6,19 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:02:50 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/28 17:39:23 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:00:28 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_checker(const char *s, va_list arg)
+int	ft_checker(const char *s, va_list arg)
 {
 	int	len;
 
 	len = 0;
 	if (*s == 'c')
 		len += ft_print_char(va_arg(arg, int));
-	else if (*s == '%')
-		len += ft_print_percent();
 	else if (*s == 's')
 		len += ft_print_string(va_arg(arg, char *));
 	else if (*s == 'd' || *s == 'i')
@@ -34,6 +32,8 @@ static int	ft_checker(const char *s, va_list arg)
 	else if (*s == 'p')
 		len += ft_print_pointer(va_arg(arg, unsigned long long),
 				"0123456789abcdef");
+	else if (*s == '%')
+		len += ft_print_percent();
 	return (len);
 }
 
@@ -55,34 +55,38 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 			final += write(1, str, 1);
+		if (final == -1)
+			break ;
 		str++;
 	}
 	va_end(va);
 	return (final);
 }
 
-int	main(void)
-{
-	int	i;
-	int	low;
-	int	high;
+// int	main(void)
+//{
+//	int	i;
+//	int	low;
+//	int	high;
 
-	i = 25123123;
-	// unsigned int u = 3141592294;
-	// char c = 'l';
-	//// char word[] = "hello world \n";
-	//// ft_printf("my string: %s\n", word);
-	//// ft_printf("%%%%%%\n");
-	//// printf("%%%%\n");
-	// ft_printf("printing integer: %d\n", i);
-	//// ft_printf("unsigned integer: %u\n", u);
-	//low = 12314;
-	//high = 151677;
-	//ft_printf("x:\t%x\nX:\t%X\n", low, high);
-	//printf("x:\t%x\nX:\t%X\n", low, high);
-	// int result = ft_printf("%d");
-	// printf("%d", result);
-	printf("%p\n", &i);
-	ft_printf("%p\n", &i);
-	return (0);
-}
+//	i = -123124;
+
+//////	// unsigned int u = 3141592294;
+//////	// char c = 'l';
+//////	//// char word[] = "hello world \n";
+//////	//// ft_printf("my string: %s\n", word);
+//////	//// ft_printf("%%%%%%\n");
+//////	//// printf("%%%%\n");
+//		ft_printf("printing integer: %d\n", i);
+//////	//// ft_printf("unsigned integer: %u\n", u);
+//////	//low = 12314;
+//////	//high = 151677;
+//////	//ft_printf("x:\t%x\nX:\t%X\n", low, high);
+//////	//printf("x:\t%x\nX:\t%X\n", low, high);
+//////	// int result = ft_printf("%d");
+//////	// printf("%d", result);
+
+////	printf("%p\n", &i);
+////	ft_printf("%p\n", &i);
+//	return (0);
+//}

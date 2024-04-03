@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 11:51:03 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/03/28 17:39:37 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:15:01 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *format, ...);
+int	ft_checker(const char *s, va_list arg);
+int	ft_printf(const char *str, ...);
 int	ft_print_char(int c);
 int	ft_print_percent(void);
 int	ft_print_string(char *c);
