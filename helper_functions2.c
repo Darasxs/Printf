@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:33:46 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/04/03 18:53:51 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/04/04 11:32:44 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_print_hex(unsigned int nbr, const char *base)
 		return (length + 1);
 	}
 	length += ft_print_hex(nbr / 16, base);
+	if (length == -1)
+		return (-1);
 	write_check = write(1, &base[nbr % 16], 1);
 	if (write_check == -1)
 		return (-1);
