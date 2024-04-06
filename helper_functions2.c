@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:33:46 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/04/04 11:32:44 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:19:11 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int static	ft_pointer_helper(unsigned long long i, char *base, int *length)
 			return (-1);
 		(*length)++;
 	}
-	return (0);
+	return (*length);
 }
 
 int	ft_print_pointer(unsigned long long i, char *base)
@@ -70,7 +70,7 @@ int	ft_print_pointer(unsigned long long i, char *base)
 	return (length);
 }
 
-int	ft_nbr_helper(int i)
+int static	ft_nbr_helper(int i)
 {
 	int		length;
 	int		write_check;

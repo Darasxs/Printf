@@ -6,7 +6,7 @@
 /*   By: dpaluszk <dpaluszk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:02:50 by dpaluszk          #+#    #+#             */
-/*   Updated: 2024/04/04 11:41:15 by dpaluszk         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:46:31 by dpaluszk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,3 @@ int	ft_printf(const char *str, ...)
 	va_end(va);
 	return (final);
 }
-
-// int	main(void)
-//{
-//	unsigned int	u;
-//	u = -300023200;
-//	//int	low;
-//	//int	high;
-
-////	i = -123124;
-
-////////////	// unsigned int u = 3141592294;
-////////////	// char c = 'l';
-////////////	//// char word[] = "hello world \n";
-////////////	//// ft_printf("my string: %s\n", word);
-////////////	//// ft_printf("%%%%%%\n");
-////////////	//// printf("%%%%\n");
-////////		ft_printf("printing integer: %d\n", i);
-////////////	//// ft_printf("unsigned integer: %u\n", u);
-////////////	//low = 12314;
-////////////	//high = 151677;
-////////////	//ft_printf("x:\t%x\nX:\t%X\n", low, high);
-////////////	//printf("x:\t%x\nX:\t%X\n", low, high);
-////////////	// int result = ft_printf("%d");
-////////////	// printf("%d", result);
-
-//////////	printf("%p\n", &i);
-//////////	ft_printf("%p\n", &i);
-//	printf("%u\n", u);
-//	ft_printf("%u\n", u);
-//	return (0);
-//}
